@@ -11,6 +11,103 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .staff-count {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            font-family: 'Poppins', sans-serif;
+            max-width: 1100px;
+            margin: 0 auto 1rem;
+            padding: 0 1.5rem;
+            display: block;
+        }
+
+        .staff-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .staff-card {
+            background: var(--card-bg, #1a1a1a);
+            border: 1px solid var(--border-color, #2a2a2a);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-3px);
+            border-color: #444;
+        }
+
+        .staff-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-color, #333);
+        }
+
+        .staff-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .staff-role-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-family: 'Poppins', sans-serif;
+            background: var(--accent-color, #e74c3c);
+            color: #fff;
+            border: none;
+        }
+
+        .staff-spinner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 5rem;
+            grid-column: 1 / -1;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        .spinner-wheel {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color, #333);
+            border-top-color: var(--accent-color, #e74c3c);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .staff-error {
+            text-align: center;
+            padding: 4rem;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.5;
+            grid-column: 1 / -1;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -29,18 +126,10 @@
     </nav>
 
     <nav class="bottom-nav">
-        <a href="../#home" class="nav-item" data-tooltip="Home">
-            <i class="fas fa-home"></i>
-        </a>
-        <a href="../#about" class="nav-item" data-tooltip="About">
-            <i class="fas fa-info-circle"></i>
-        </a>
-        <a href="../#services" class="nav-item" data-tooltip="Services">
-            <i class="fas fa-cogs"></i>
-        </a>
-        <a href="#" class="nav-item active" data-tooltip="Team">
-            <i class="fas fa-users"></i>
-        </a>
+        <a href="../#home" class="nav-item" data-tooltip="Home"><i class="fas fa-home"></i></a>
+        <a href="../#about" class="nav-item" data-tooltip="About"><i class="fas fa-info-circle"></i></a>
+        <a href="../#services" class="nav-item" data-tooltip="Services"><i class="fas fa-cogs"></i></a>
+        <a href="#" class="nav-item active" data-tooltip="Team"><i class="fas fa-users"></i></a>
         <button id="theme-toggle" class="nav-item" data-tooltip="Toggle Theme">
             <div class="toggle-icon">
                 <i class="fas fa-sun light-icon"></i>
@@ -51,203 +140,17 @@
 
     <section class="team-header">
         <h1 data-aos="fade-up">Meet Our Team</h1>
-        <p data-aos="fade-up" data-aos-delay="100">The brilliant minds behind ClowderTech's innovation</p>
+        <p data-aos="fade-up" data-aos-delay="100">The people behind ClowderTech</p>
     </section>
 
-    <section class="team-section">
-        <!-- Management Team -->
-        <div class="team-department" data-aos="fade-up">
-            <h2>Management</h2>
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=1" alt="Para">
-                        </div>
-                    </div>
-                    <h3>Para</h3>
-                    <p class="position">Manager</p>
-                    <p class="bio">Leading the team with vision and strategy</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=2" alt="Spaghetti">
-                        </div>
-                    </div>
-                    <h3>Spaghetti</h3>
-                    <p class="position">Administrator</p>
-                    <p class="bio">Keeping operations running smoothly</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <span class="staff-count" id="staffCount"></span>
 
-        <!-- Development Team -->
-        <div class="team-department" data-aos="fade-up">
-            <h2>Development</h2>
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=3" alt="Lawyer">
-                        </div>
-                    </div>
-                    <h3>Lawyer</h3>
-                    <p class="position">Head Developer</p>
-                    <p class="bio">Leading technical innovation and development</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=4" alt="yxnv">
-                        </div>
-                    </div>
-                    <h3>yxnv</h3>
-                    <p class="position">Developer</p>
-                    <p class="bio">Building amazing features and solutions</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://ibb.co/b7JK8PL" alt="Dolphin">
-                        </div>
-                    </div>
-                    <h3>Dolphin</h3>
-                    <p class="position">Developer</p>
-                    <p class="bio">Crafting elegant code solutions</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
+    <div class="staff-grid" id="staffGrid">
+        <div class="staff-spinner">
+            <div class="spinner-wheel"></div>
+            Loading staff...
         </div>
-
-        <!-- Event Team -->
-        <div class="team-department" data-aos="fade-up">
-            <h2>Event Team</h2>
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=6" alt="Green">
-                        </div>
-                    </div>
-                    <h3>Green</h3>
-                    <p class="position">Head Event Organizer</p>
-                    <p class="bio">Coordinating amazing community events</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=7" alt="Dora">
-                        </div>
-                    </div>
-                    <h3>Dora</h3>
-                    <p class="position">Event Organizer</p>
-                    <p class="bio">Making every event special and memorable</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Moderation Team -->
-        <div class="team-department" data-aos="fade-up">
-            <h2>Moderation Team</h2>
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=8" alt="claim">
-                        </div>
-                    </div>
-                    <h3>claim</h3>
-                    <p class="position">Head Moderator</p>
-                    <p class="bio">Ensuring community safety and engagement</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=9" alt="Lawyer">
-                        </div>
-                    </div>
-                    <h3>Lawyer</h3>
-                    <p class="position">Moderator</p>
-                    <p class="bio">Maintaining community standards</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=10" alt="Green">
-                        </div>
-                    </div>
-                    <h3>Green</h3>
-                    <p class="position">Moderator</p>
-                    <p class="bio">Supporting community growth</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-icon">
-                        <div class="team-image">
-                            <img src="https://i.pravatar.cc/300?img=11" alt="Sharky">
-                        </div>
-                    </div>
-                    <h3>Sharky</h3>
-                    <p class="position">Moderator</p>
-                    <p class="bio">Fostering positive community interactions</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="../script.js"></script>

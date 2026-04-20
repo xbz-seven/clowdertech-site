@@ -1,0 +1,273 @@
+/* ── Header ── */
+.team-header {
+    padding: 120px 2rem 60px;
+    text-align: center;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--shadow);
+}
+
+.team-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.team-header p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ── Staff count ── */
+.staff-count {
+    display: block;
+    max-width: 1100px;
+    margin: 4rem auto 2rem;
+    padding: 0 1.5rem;
+    font-size: 0.85rem;
+    opacity: 0.5;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    text-align: left;
+}
+
+/* ── Grid ── */
+.staff-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* ── Card ── */
+.staff-card {
+    background: var(--card-bg);
+    border: 1px solid var(--shadow);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.staff-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-color);
+}
+
+.staff-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--shadow);
+}
+
+.staff-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0.5rem 0 0 0;
+}
+
+.staff-role-badge {
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-family: 'Poppins', sans-serif;
+    background: var(--accent-color, #e74c3c);
+    color: #fff;
+    border: none;
+}
+
+/* ── Spinner ── */
+.staff-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 5rem;
+    grid-column: 1 / -1;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.spinner-wheel {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--shadow);
+    border-top-color: var(--accent-color, #e74c3c);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Error ── */
+.staff-error {
+    text-align: center;
+    padding: 4rem;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.5;
+    color: var(--text-color);
+    grid-column: 1 / -1;
+}
+
+/* ── Navbar ── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem 2rem;
+    z-index: 1000;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+/* ── Bottom nav ── */
+.bottom-nav {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 50px;
+    box-shadow: 0 5px 20px var(--shadow);
+    z-index: 1000;
+}
+
+.nav-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.nav-item[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 5px var(--shadow);
+}
+
+/* ── Theme toggle ── */
+.toggle-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.light-icon,
+.dark-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="light"] .light-icon,
+[data-theme="dark"] .dark-icon {
+    opacity: 1;
+}
+
+[data-theme="light"] .dark-icon,
+[data-theme="dark"] .light-icon {
+    opacity: 0;
+}
+
+/* ── Logo ── */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo-container h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.logo-container svg {
+    height: 32px;
+    width: auto;
+}
+
+.logo-container svg path:first-child {
+    fill: #F2F2F2;
+}
+
+.logo-container .cat {
+    fill: var(--text-color);
+}
+
+[data-theme="dark"] .logo-container svg path:first-child {
+    fill: #1a1a1a;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .staff-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .team-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+}
