@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (teamNavItem) {
         teamNavItem.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = '/team';
+            window.location.href = '/team/index.html';
         });
     }
 
